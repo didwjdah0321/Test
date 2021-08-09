@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test">
+	<select id = "selectMemberInfo" resultType = "com.mytest.mytest.vo.MemberVO">
+		select *
+		from member
+		where id = #{id}
+	</select>
+	
+	<select id = "showAllMember" resultType = "com.mytest.mytest.vo.MemberVO">
+		select *
+		from member
+	</select>
+	
+	<select id = "insertMember">
+		insert into member(id, pw, name) values(#{id}, #{pw}, #{name})
+	</select>
+	
+	<update id = "buyIntro">
+		update member set point = point - 100000
+		where id = #{id}
+	</update>
+
+	<update id = "buyJava">
+		update member set point = point - 500000
+		where id = #{id}	
+	</update>
+
+	<update id = "buyC">
+		update member set point = point - 300000
+		where id = #{id}	
+	</update>
+	
+	<update id = "ad">
+		update member set point = point + 1000
+		where id = #{id}
+	</update>
+	
+	<update id = "updateMemeber">
+		update member set name = #{name}, pw = #{pw}, point = #{point}
+		where id = #{id}
+	</update>
+	
+	<update id = "updatePointBySchedule">
+		update member set point = point + 1
+	</update>
+	
+	<delete id = "removeMember">
+		delete from member where id = #{id}
+	</delete>
+</mapper>
